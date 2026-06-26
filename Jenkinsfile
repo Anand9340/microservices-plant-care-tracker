@@ -95,67 +95,83 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
 
-                sh """
-                kubectl apply -f k8s/deployment.yaml
+                withCredentials([
+                    [$class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'aws-creds']
+                ])  {
 
-                kubectl rollout status deployment/${DEPLOYMENT_NAME} --timeout=300s
+                    sh """
+                    kubectl apply -f k8s/deployment.yaml
 
-                kubectl get pods
+                    kubectl rollout status deployment/${DEPLOYMENT_NAME} --timeout=300s
 
-                kubectl get svc ${SERVICE_NAME}
-                """
+                    kubectl get pods
+
+                    kubectl get svc ${SERVICE_NAME}
+                    """
+                }
             }
         }
 
         stage('Deploy Ingress') {
             steps {
 
-                sh """
-                kubectl apply -f k8s/ingress.yaml
-                sleep 10
-                kubectl get ingress ${INGRESS_NAME}
-                kubectl describe ingress ${INGRESS_NAME}
-                """
+                withCredentials([
+                    [$class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'aws-creds']
+                ]) {
+
+                    sh """
+                    kubectl apply -f k8s/ingress.yaml
+
+                    sleep 10
+
+                    kubectl get ingress ${INGRESS_NAME}
+
+                    kubectl describe ingress ${INGRESS_NAME}
+                    """
+                }
             }
         }
 
         stage('Get Application URL') {
             steps {
+                withCredentials([
+                    [$class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'aws-creds']
+                ]) {
 
-                script {
+                    script {
 
-                    timeout(time: 10, unit: 'MINUTES') {
+                        timeout(time: 10, unit: 'MINUTES') {
 
-                        waitUntil {
+                            waitUntil {
 
-                            def hostname = sh(
-                                script: "kubectl get svc ingress-nginx-controller -n ingress-nginx -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'",
-                                returnStdout: true
-                            ).trim()
+                                def hostname = sh(
+                                    script: "kubectl get svc ingress-nginx-controller -n ingress-nginx -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'",
+                                    returnStdout: true
+                                ).trim()
 
-                            if (hostname) {
+                                if (hostname) {
+                                    env.APP_URL = "http://${hostname}"
+                                    return true
+                                }
 
-                                env.APP_URL = "http://${hostname}"
-
-                                return true
+                                return false
                             }
-
-                            return false
                         }
+
+                        echo "===================================="
+                        echo "Deployment Successful"
+                        echo "Application URL : ${APP_URL}"
+                        echo "===================================="
+
+                        sh "curl -I ${APP_URL} || true"
                     }
-
-                    echo "===================================="
-                    echo "Deployment Successful"
-                    echo "Application URL : ${APP_URL}"
-                    echo "===================================="
-
-                    sh "curl -I ${APP_URL} || true"
                 }
             }
         }
-
     }
-
     post {
 
         always {
