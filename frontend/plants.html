@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Plant Management</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            🌿 PlantCare
+
+        </div>
+
+        <ul>
+
+            <li><a href="index.html">Dashboard</a></li>
+
+            <li><a href="plants.html" class="active">Plants</a></li>
+
+            <li><a href="watering.html">Watering</a></li>
+
+            <li><a href="reminders.html">Reminders</a></li>
+
+        </ul>
+
+    </nav>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>Plant Management</h1>
+
+            <p>
+
+                Add, manage and organize all your indoor and outdoor plants.
+
+            </p>
+
+        </div>
+
+        <div class="hero-image">
+
+            🌱
+
+        </div>
+
+    </section>
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <section class="stats">
+
+        <div class="stat-card">
+
+            <i class="fa-solid fa-seedling"></i>
+
+            <h2 id="plantCount">0</h2>
+
+            <p>Total Plants</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <i class="fa-solid fa-tree"></i>
+
+            <h2>6</h2>
+
+            <p>Categories</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <i class="fa-solid fa-heart"></i>
+
+            <h2>100%</h2>
+
+            <p>Healthy Plants</p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FORM ================= -->
+
+    <div class="form-container">
+
+        <h2>
+
+            <i class="fa-solid fa-plus"></i>
+
+            Add New Plant
+
+        </h2>
+
+        <div class="form-group">
+
+            <label>Plant Name</label>
+
+            <input type="text" id="plantName" placeholder="Enter Plant Name">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Plant Type</label>
+
+            <select id="plantType">
+
+                <option>Indoor</option>
+                <option>Outdoor</option>
+                <option>Flower</option>
+                <option>Succulent</option>
+                <option>Vegetable</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Location</label>
+
+            <input type="text" id="plantLocation" placeholder="Balcony / Garden / Living Room">
+
+        </div>
+
+        <button onclick="addPlant()">
+
+            <i class="fa-solid fa-plus"></i>
+
+            Add Plant
+
+        </button>
+
+    </div>
+
+    <!-- ================= SEARCH ================= -->
+
+    <div class="search-box">
+
+        <input type="text" id="searchPlant" placeholder="🔍 Search Plant..." onkeyup="searchPlant()">
+
+    </div>
+
+    <!-- ================= TABLE ================= -->
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Plant Name</th>
+
+                <th>Type</th>
+
+                <th>Location</th>
+
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="plantTable">
+
+            <tr>
+
+                <td colspan="5">
+
+                    No plants added yet.
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        © 2026 Plant Care Dashboard
+
+    </footer>
+
+    <script src="js/plants.js"></script>
+
+</body>
+
+</html>

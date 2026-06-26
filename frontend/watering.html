@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Watering Schedule</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            🌿 PlantCare
+
+        </div>
+
+        <ul>
+
+            <li><a href="index.html">Dashboard</a></li>
+
+            <li><a href="plants.html">Plants</a></li>
+
+            <li><a href="watering.html" class="active">Watering</a></li>
+
+            <li><a href="reminders.html">Reminders</a></li>
+
+        </ul>
+
+    </nav>
+
+    <!-- Hero -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>💧 Watering Schedule</h1>
+
+            <p>
+
+                Manage watering schedules for all your plants.
+
+            </p>
+
+        </div>
+
+        <div class="hero-image">
+
+            💧
+
+        </div>
+
+    </section>
+
+    <!-- Dashboard -->
+
+    <section class="stats">
+
+        <div class="stat-card">
+
+            <i class="fa-solid fa-droplet"></i>
+
+            <h2 id="wateringCount">0</h2>
+
+            <p>Total Schedules</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <i class="fa-solid fa-calendar-days"></i>
+
+            <h2>7</h2>
+
+            <p>This Week</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <h2>100%</h2>
+
+            <p>Completed</p>
+
+        </div>
+
+    </section>
+
+    <!-- Form -->
+
+    <div class="form-container">
+
+        <h2>
+
+            <i class="fa-solid fa-plus"></i>
+
+            Add Watering Schedule
+
+        </h2>
+
+        <div class="form-group">
+
+            <label>Plant Name</label>
+
+            <input type="text" id="plantName" placeholder="Enter Plant Name">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Watering Date</label>
+
+            <input type="date" id="wateringDate">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Status</label>
+
+            <select id="status">
+
+                <option>Pending</option>
+
+                <option>Completed</option>
+
+            </select>
+
+        </div>
+
+        <button onclick="addWatering()">
+
+            <i class="fa-solid fa-plus"></i>
+
+            Save Schedule
+
+        </button>
+
+    </div>
+
+    <!-- Search -->
+
+    <div class="search-box">
+
+        <input type="text" id="searchWatering" placeholder="🔍 Search Plant..." onkeyup="searchWatering()">
+
+    </div>
+
+    <!-- Table -->
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Plant</th>
+
+                <th>Date</th>
+
+                <th>Status</th>
+
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="wateringTable">
+
+            <tr>
+
+                <td colspan="5">
+
+                    No watering schedules found.
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <footer>
+
+        © 2026 Plant Care Dashboard
+
+    </footer>
+
+    <script src="js/watering.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,531 @@
+/* ==================================================
+   Plant Care Dashboard
+================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #F4FFF4;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.navbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px 60px;
+
+    background: linear-gradient(90deg, #2E7D32, #43A047);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .15);
+
+}
+
+.logo {
+
+    color: white;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+}
+
+.navbar ul {
+
+    display: flex;
+
+}
+
+.navbar li {
+
+    margin-left: 25px;
+
+}
+
+.navbar a {
+
+    color: white;
+
+    padding: 10px 18px;
+
+    border-radius: 30px;
+
+    transition: .3s;
+
+}
+
+.navbar a:hover {
+
+    background: white;
+
+    color: #2E7D32;
+
+}
+
+.active {
+
+    background: white;
+
+    color: #2E7D32 !important;
+
+}
+
+.hero {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 70px;
+
+    background: white;
+
+    margin: 40px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+
+}
+
+.hero-text {
+
+    width: 55%;
+
+}
+
+.hero-text h1 {
+
+    font-size: 55px;
+
+    color: #2E7D32;
+
+    margin-bottom: 20px;
+
+}
+
+.hero-text p {
+
+    font-size: 18px;
+
+    line-height: 32px;
+
+    margin-bottom: 30px;
+
+}
+
+.hero-btn {
+
+    display: inline-block;
+
+    background: #2E7D32;
+
+    color: white;
+
+    padding: 15px 35px;
+
+    border-radius: 40px;
+
+    transition: .3s;
+
+}
+
+.hero-btn:hover {
+
+    background: #1B5E20;
+
+}
+
+.hero-image {
+
+    width: 250px;
+
+    height: 250px;
+
+    border-radius: 50%;
+
+    background: #E8F5E9;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 120px;
+
+}
+
+.stats {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    margin: 50px;
+
+    flex-wrap: wrap;
+
+}
+
+.stat-card {
+
+    width: 260px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .08);
+
+    transition: .3s;
+
+}
+
+.stat-card:hover {
+
+    transform: translateY(-10px);
+
+}
+
+.stat-card i {
+
+    font-size: 50px;
+
+    color: #43A047;
+
+    margin-bottom: 20px;
+
+}
+
+.stat-card h2 {
+
+    font-size: 40px;
+
+    color: #2E7D32;
+
+}
+
+.stat-card p {
+
+    margin-top: 10px;
+
+}
+
+/* ==========================================
+   Service Cards
+========================================== */
+
+.services {
+    width: 90%;
+    margin: 60px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service {
+    background: white;
+    border-radius: 20px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+    transition: .4s;
+    cursor: pointer;
+}
+
+.service:hover {
+    transform: translateY(-12px);
+    background: #2E7D32;
+    color: white;
+}
+
+.service i {
+    font-size: 60px;
+    color: #2E7D32;
+    margin-bottom: 20px;
+}
+
+.service:hover i {
+    color: white;
+}
+
+.service h3 {
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+.service p {
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 28px;
+}
+
+.service:hover p {
+    color: white;
+}
+
+.service a {
+    display: inline-block;
+    background: #2E7D32;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    transition: .3s;
+}
+
+.service:hover a {
+    background: white;
+    color: #2E7D32;
+}
+
+/* ==========================================
+   Activity
+========================================== */
+
+.activity {
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: 70px auto;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+
+}
+
+.activity h2 {
+
+    color: #2E7D32;
+
+    margin-bottom: 25px;
+
+}
+
+.activity ul {
+
+    list-style: none;
+
+}
+
+.activity li {
+
+    padding: 18px;
+
+    margin: 15px 0;
+
+    border-left: 6px solid #43A047;
+
+    background: #F5FFF5;
+
+    border-radius: 8px;
+
+    transition: .3s;
+
+}
+
+.activity li:hover {
+
+    transform: translateX(8px);
+
+    background: #E8F5E9;
+
+}
+
+/* ==========================================
+   Buttons
+========================================== */
+
+button {
+
+    background: #2E7D32;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 25px;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    font-size: 16px;
+
+}
+
+button:hover {
+
+    background: #1B5E20;
+
+}
+
+/* ==========================================
+   Footer
+========================================== */
+
+footer {
+
+    margin-top: 70px;
+
+    background: #2E7D32;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 25px;
+
+    font-size: 16px;
+
+}
+
+/* ==========================================
+   Animation
+========================================== */
+
+@keyframes float {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+.hero-image {
+
+    animation: float 3s ease-in-out infinite;
+
+}
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media(max-width:992px) {
+
+    .hero {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+    .hero-text {
+
+        width: 100%;
+
+        margin-bottom: 40px;
+
+    }
+
+    .navbar {
+
+        flex-direction: column;
+
+        padding: 20px;
+
+    }
+
+    .navbar ul {
+
+        margin-top: 20px;
+
+    }
+
+    .stats {
+
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .hero {
+
+        padding: 30px;
+
+        margin: 20px;
+
+    }
+
+    .hero h1 {
+
+        font-size: 36px;
+
+    }
+
+    .logo {
+
+        font-size: 22px;
+
+    }
+
+    .service {
+
+        padding: 25px;
+
+    }
+
+}
+
