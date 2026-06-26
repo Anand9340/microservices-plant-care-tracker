@@ -2,11 +2,13 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: plant-care-ingress
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
 spec:
   ingressClassName: nginx
   rules:
-  - host: plant.local
-    http:
+  - http:
       paths:
       - path: /
         pathType: Prefix
